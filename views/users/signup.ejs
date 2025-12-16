@@ -1,0 +1,25 @@
+<% layout("layout/boilerplate") %>
+<div class="row mt-3">
+  <h2 style="color: #fe424d;" class="col-6 offset-2">Sign up for Wanderlust</h2><br><br><br>
+    <div class="col-6 offset-3">
+        <form action="/signup" method="POST" class="needs-validation">
+ 
+        <div class="mb-3">
+        <label for="username" class="form-label" style="color: #fe424d;">Username:</label>
+        <input type="text" name="username" class="form-control" id="username"required>
+        <div class="valid-feedback">Username looks good!</div>
+      </div>
+
+       <div class="mb-3">
+        <label for="email" class="form-label" style="color: #fe424d;">Email:</label>
+        <input type="text" name="email" class="form-control" id="email"required>
+      </div>
+
+       <div class="mb-3">
+        <label for="password" class="form-label" style="color: #fe424d;">Password:</label>
+        <input type="password" name="password" class="form-control" id="username"required>
+      </div>
+ <button type="submit" class="btn btn-dark" style="background-color: #fe424d !important; border: none !important;">Sign Up</button>
+        </form>
+    </div>
+</div>

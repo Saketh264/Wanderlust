@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-md bg-light py-3 position-relative">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <!-- Left: Logo & Title -->
+    <div class="d-flex align-items-center gap-2">
+      <a class="navbar-brand me-2" href="#"><i class="fa-solid fa-compass fa-lg text-danger"></i></a>
+      <a class="nav-link" href="/listing" style="color: #fe424d !important;font-size: 20px;">airbnb</a>
+    </div>
+
+    <!-- Center: Icon Navs (Absolutely Positioned) -->
+    <div class="position-absolute start-50 translate-middle-x d-none d-md-flex gap-5 text-center">
+      <div class="nav-icon active">
+        <button class="nav-i"><i class="fa-solid fa-house fa-lg"></i></button>
+        <div class="fw-bold small">Homes</div>
+      </div>
+      <div class="nav-icon">
+        <button class="nav-i"><i class="fa-solid fa-hot-tub-person fa-lg"></i></button>
+        <div class="fw-bold small">Experiences</div>
+      </div>
+      <div class="nav-icon">
+        <button class="nav-i"><i class="fa-solid fa-bell-concierge fa-lg"></i></button>
+        <div class="fw-bold small">Services</div>
+        
+      </div>
+    </div>
+
+    <!-- Right: Toggler + Auth Links -->
+    <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center gap-2 mt-3 mt-md-0">
+        <li class="nav-item">
+          <a class="nav-link " href="/listing/new">Become a host</a>
+        </li>
+        <% if (!currUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/signup">Signup</a>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link " href="/logout">Logout</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="bg-light py-4 border-bottom">
+  <div class="container d-flex justify-content-center">
+    <form class="search-bar d-flex align-items-center bg-white shadow rounded-pill px-4 py-2 gap-4 w-100" style="max-width: 900px;">
+      
+      <!-- Where Dropdown -->
+      <div class="flex-grow-1">
+        <div class="fw-bold small">Where</div>
+        <div class="dropdown">
+          <button class="btn bg-white border-0 p-0 fw-normal dropdown-toggle custom-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            North Goa
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Goa</a></li>
+            <li><a class="dropdown-item" href="#">Kerala</a></li>
+            <li><a class="dropdown-item" href="#">Manali</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="vr"></div>
+
+      <!-- Check-in -->
+      <div>
+        <div class="fw-bold small">Check in</div>
+        <input type="date" class="form-control border-0 p-0" />
+      </div>
+
+      <!-- Divider -->
+      <div class="vr"></div>
+
+      <!-- Check-out -->
+      <div>
+        <div class="fw-bold small">Check out</div>
+        <input type="date" class="form-control border-0 p-0" />
+      </div>
+
+      <!-- Divider -->
+      <div class="vr"></div>
+
+      <!-- Guests -->
+      <div>
+        <div class="fw-bold small">Who</div>
+        <input type="number" class="form-control border-0 p-0" placeholder="Add guests" />
+      </div>
+
+      <!-- Search Icon -->
+      <button type="submit" class="btn btn-danger rounded-circle d-flex justify-content-center align-items-center" style="width: 45px; height: 45px;">
+        <i class="fa-solid fa-magnifying-glass text-white"></i>
+      </button>
+    </form>
+  </div>
+</header>
+

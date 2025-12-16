@@ -1,0 +1,9 @@
+<% layout("layout/boilerplate") %>
+
+<div class="container mt-5 text-center">
+  <h1 class="display-4 text-danger">Error <%= err.statusCode || 500 %></h1>
+  <p class="lead"><%= err.message || "Something went wrong. Please try again later." %></p>
+  <a href="/listing" class="btn btn-primary mt-3">
+    <i class="fa-solid fa-arrow-left"></i> Back to Listings
+  </a>
+</div>

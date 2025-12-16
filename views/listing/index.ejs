@@ -1,0 +1,29 @@
+<% layout("layout/boilerplate") %>
+
+<br>
+<h3>All Listings</h3><br>
+<div class="row row-cols-lg-6 row-cols-md-2 row-cols-sm-1">
+  <% for (let listing of allListings) { %>
+    <div class="col mb-4">
+      <a href="/listing/<%= listing._id %>" style="text-decoration: none; color: inherit;">
+        <div class="card listing-card border-0 shadow-sm" style="border-radius: 1rem;">
+          <div class="position-relative">
+            <img src="<%= listing.image?.url || 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg' %>"
+              class="card-img-top img-fluid"
+              style="height: 180px; width: 100%; object-fit: cover; border-top-left-radius: 1rem; border-top-right-radius: 1rem;"
+              alt="listing image">
+            <div class="position-absolute top-0 start-0 m-2 px-3 py-1 bg-white rounded-pill small fw-semibold">Guest favourite</div>
+            <div class="position-absolute top-0 end-0 m-2">
+              <i class="fa-regular fa-heart fs-5"></i>
+            </div>
+          </div>
+          <div class="card-body px-3">
+            <h5 class="card-title mb-1"><%= listing.title %></h5>
+            <p class="card-text text-muted">&#8377;<%= listing.price.toLocaleString("en-IN") %> per night</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  <% } %>
+</div>
+

@@ -1,0 +1,60 @@
+<% layout("layout/boilerplate") %>
+<br>
+<h3 style="color: #fe424d;">Create a New Listing</h3>
+<br>
+<div class="row">
+  <div class="col-8 offset-2">
+    <form method="POST" action="/listing" novalidate class="needs-validation" enctype="multipart/form-data">
+
+      <div>
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" name="listing[title]" placeholder="Enter title" class="form-control" required>
+        <div class="valid-feedback">Title looks good!</div>
+        <br>
+      </div>
+
+      <div>
+        <label for="description" class="form-label">Description:</label>
+        <textarea name="listing[description]" placeholder="Enter description" required class="form-control"></textarea>
+        <div class="valid-feedback">Description looks good!</div>
+        <br>
+      </div>
+
+      <div>
+        <label for="image.url" class="form-label">Image URL:</label>
+        <input type="file" name="listing[image]" placeholder="Enter image URL" required class="form-control">
+        <div class="invalid-feedback">Please enter an image URL</div>
+        <br>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <div>
+            <label for="price" class="form-label">Price:</label>
+            <input type="number" name="listing[price]" placeholder="Enter price" required class="form-control">
+            <div class="invalid-feedback">Price should be valid</div>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div>
+            <label for="location" class="form-label">Location:</label>
+            <input type="text" name="listing[location]" placeholder="Enter location" required class="form-control">
+            <div class="invalid-feedback">Location should be valid</div>
+            <br>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="country" class="form-label">Country:</label>
+        <input type="text" name="listing[country]" placeholder="Enter country" required class="form-control">
+        <div class="invalid-feedback">Country should be valid</div>
+        <br>
+      </div>
+
+      <button type="submit" class="btn btn-dark" style="background-color: #fe424d !important; border: none !important;">Create Listing</button>
+    </form>
+    <br>
+  </div>
+</div>
