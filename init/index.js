@@ -1,17 +1,35 @@
-const mongoose=require("mongoose")
-const initData=require("./data.js")
-const Listings=require("../models/listings.js")
-main().then(()=>{
-    console.log("DB connected")
-})
-.catch((err)=>{console.log(err)})
-async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust')
-}
-const initDB= async()=>{
-    await Listings.deleteMany({})
-    initData.data=initData.data.map((obj)=>({...obj,owner: '6852bab3762ef9ae8f43f222'}))
+const mongoose = require("mongoose");
+const initData = require("./data.js");
+const Listings = require("../models/listings.js");
+const User = require("../models/user");
+
+async function initDB() {
+  try {
+    await mongoose.connect("mongodb://mongo:27017/wanderlust");
+    console.log("DB connected for seeding");
+
+    const admin = await User.findOne({ username: "Admin" });
+
+    if (!admin) {
+      throw new Error("Admin user not found. Seed users first.");
+    }
+
+    await Listings.deleteMany({});
+
+    initData.data = initData.data.map((obj) => ({
+      ...obj,
+      owner: admin._id,
+    }));
+
     await Listings.insertMany(initData.data);
-    console.log("data is inatialized")
+    console.log("Data initialized");
+
+    await mongoose.connection.close();
+    process.exit(0);
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 }
+
 initDB();
