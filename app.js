@@ -72,7 +72,7 @@ app.use((req,res,next)=>{
 app.get("/", (req, res) => {
   res.send("I'm root route");
 });
-app,get("/cicd",(req,res)=>{
+app.get("/cicd",(req,res)=>{
   res.send("BROOOOOOOO auto deployed")
 })
 // --- ROUTES ---
