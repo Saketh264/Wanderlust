@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listings = require("../models/listings.js");
 const User = require("../models/user");
-
+require("dotenv").config();
 async function initDB() {
   try {
-    await mongoose.connect("mongodb://mongo:27017/wanderlust");
+    await mongoose.connect(process.env.MONGO_URL);
     console.log("DB connected for seeding");
 
     const admin = await User.findOne({ username: "Admin" });

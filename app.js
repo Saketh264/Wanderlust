@@ -24,8 +24,11 @@ main()
   });
 
 async function main() {
-  await mongoose.connect("mongodb://mongo:27017/wanderlust");
+  await mongoose.connect(process.env.MONGO_URL);
+  console.log("DB URL:", process.env.MONGO_URL);
+
 }
+
 
 // EJS and Static Files Configuration
 app.set("view engine", "ejs");
@@ -69,6 +72,9 @@ app.use((req,res,next)=>{
 app.get("/", (req, res) => {
   res.send("I'm root route");
 });
+app,get("/cicd",(req,res)=>{
+  res.send("BROOOOOOOO auto deployed")
+})
 // --- ROUTES ---
 app.use("/listing",listingRoute)
 app.use("/listing/:id/reviews",reviewRoute)
